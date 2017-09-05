@@ -10,6 +10,13 @@ This is an Experiment, not a Google product.
 
 Inside Music is built with [aframe](https://aframe.io), [THREE.JS](https://threejs.org) and [Tone.js](https://tonejs.github.io/).
 
+## Contributors
+
+[@hapticdata](https://github.com/hapticdata)
+[@tambien](https://github.com/tambien)
+[@ryburke](https://github.com/ryburke)
+[@alexanderchen](https://github.com/alexanderchen)
+
 ## Interaction
 
 Select a song from the menu. The stems of the song will appear in a circle around you, each represented by a sphere. In _360 Mode_, tap the spheres to turn them on or off. In _VR Mode_, you can use your controller to toggle their state. On Google Cardboard, you will have a retical (a small circle in front of you eye) which can be used to turn the stems on and off.
