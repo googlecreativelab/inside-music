@@ -12,10 +12,10 @@ Inside Music is built with [aframe](https://aframe.io), [THREE.JS](https://three
 
 ## Contributors
 
-[@hapticdata](https://github.com/hapticdata)
-[@tambien](https://github.com/tambien)
-[@ryburke](https://github.com/ryburke)
-[@alexanderchen](https://github.com/alexanderchen)
+* [@hapticdata](https://github.com/hapticdata)
+* [@tambien](https://github.com/tambien)
+* [@ryburke](https://github.com/ryburke)
+* [@alexanderchen](https://github.com/alexanderchen)
 
 ## Interaction
 
