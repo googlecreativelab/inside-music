@@ -1,10 +1,10 @@
 # Overview
 
-Song Exploder Presents: Inside Music is a [WebVRExperiment](https://webvrexperiments.com) that lets you step inside a song, giving you a closer look at how music is made.
+Song Exploder Presents: Inside Music is a [WebVR Experiment](https://webvrexperiments.com) that lets you step inside a song, giving you a closer look at how music is made.
 
 The audio of the featured artists and voice over is not included in this repo. To add your own audio and play it in this experiment follow the instructions below.
 
-This is not a Google product.
+This is an Experiment, not a Google product.
 
 ## Technology
 
@@ -12,19 +12,19 @@ Inside Music is built with [aframe](https://aframe.io), [THREE.JS](https://three
 
 ## Interaction
 
-Select a song from the menu. The stems of the song will appear in a circle around you, each represented by a sphere. If in _360 Mode_, tap the spheres to turn them on or off. In _VR Mode_, you can use your controller to toggle their state. On Google Cardboard, you will have a retical (a small circle in front of you eye) which can be used to turn the stems on and off.
+Select a song from the menu. The stems of the song will appear in a circle around you, each represented by a sphere. In _360 Mode_, tap the spheres to turn them on or off. In _VR Mode_, you can use your controller to toggle their state. On Google Cardboard, you will have a retical (a small circle in front of you eye) which can be used to turn the stems on and off.
 
 ## Build
 
 To build a local version of Inside Music, you will need to have Node.js and [webpack](https://webpack.github.io/) installed.
 
-In the terminal, inside the project's director, install all of the project's dependencies:
+In the terminal, inside the project's directory, install all of the project's dependencies:
 
 ```bash
 npm install
 ```
 
-Then compile the source code with webpack
+Then compile the source code with webpack:
 
 ```bash
 webpack -p
@@ -32,16 +32,15 @@ webpack -p
 
 You can now run a local server such as `http-server`. To install `http-server`, run `npm install -g http-server`. You can now view the site in a browser.
 
-You'll have to add your own audio files for the experiment to work.
+NOTE: You'll have to add your own audio files for the experiment to work.
 
 ## Exploring your own music in VR
 
-We hope this experiment inspires musicians and coders to explore their own music in VR. Here's a step by step guide to bringing your own music into VR, using the open-source code from the Inside Music experiment. The application supports anywhere from 1-7 stems.
+We hope this experiment inspires musicians and coders to explore their own music in VR. Here's a step-by-step guide to bringing your own music into VR, using the open-source code from the Inside Music experiment. The application supports anywhere from 1-7 stems.
 
 ### Preparing your stems
 
-First, export the stems of your song as `wav` and so that they all line up at the beginning. Create a folder for your song in the `audio/stems` folder for your song, for example our demo song is called 'drumming'.
-
+First, export the stems of your song as `wav` and so that they all line up at the beginning. Create a folder for your song in the `audio/stems` folder. For example our demo song is called 'drumming'.
 
 ![drumming](./images/stems_folder.png)
 
@@ -73,7 +72,7 @@ This is what the config for our drumming song might look like:
 
 ![drumming](./images/stem_config.png)
 
-You can now rebuild the javascript files by following the [build instructions above](#build) and explore to your song in VR!
+You can now rebuild the javascript files by following the [build instructions above](#build) and explore your song in VR!
 
 ## LICENSE
 
