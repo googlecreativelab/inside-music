@@ -1,0 +1,22 @@
+$size : 30px;
+
+#exitButton {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	width: $size;
+	height: $size;
+	text-align: center;
+	line-height: $size; 
+	font-size: $size;
+	color: white;
+	display: none;
+	cursor: pointer;
+	background-image: url(../images/back_arrow.png);
+	background-size: 100% 100%;
+	z-index: 10000000000;
+
+	&.visible {
+		display: block;
+	}
+}

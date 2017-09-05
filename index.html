@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Song Exploder Presents: Inside Music</title>
+
+	<meta name="og:title" content="Song Exploder Presents: Inside Music">
+	<meta name="og:image" content="images/thumbnail.png">
+	<meta name="og:description" content="Step inside the music of Phoenix, Perfume Genius, Ibeyi, Natalia LaFourcade, Alarm Will Sound, and Clipping.">
+	<meta name="og:url" content="https://experiments.withgoogle.com/webvr/inside-music/view">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<meta name="description" content="Step inside the music of Phoenix, Perfume Genius, Ibeyi, Natalia LaFourcade, Alarm Will Sound, and Clipping.">
+	<!-- Origin Trial Token, feature = WebVR (For Chrome M59+), origin = https://cl-alarm-will-sound.appspot.com, expires = 2017-09-27 -->
+	<meta http-equiv="origin-trial" data-feature="WebVR (For Chrome M59+)" data-expires="2017-09-27" content="AltrzeyvhIFNsBOONfP4N989N4wsrkByyOnwHav9zo/NIos39CaDJmoklm2lT02lQbb1XKnFzmrDPi7K8QKVZwcAAAB0eyJvcmlnaW4iOiJodHRwczovL2NsLWFsYXJtLXdpbGwtc291bmQuYXBwc3BvdC5jb206NDQzIiwiZmVhdHVyZSI6IldlYlZSMS4xIiwiZXhwaXJ5IjoxNTA2NTI3MDE3LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=">
+
+	<script>
+		window.WebVRConfig = {
+			GET_VR_DISPLAYS_TIMEOUT: 30000
+		};
+
+	</script>
+
+	<script type="text/javascript" src="build/vendor.bundle.js"></script>
+	<script type="text/javascript" src="build/Main.js"></script>
+	<script type="text/javascript" src="build/Fallback.js"></script>
+
+
+	<!-- favicons -->
+	<link rel="shortcut icon" sizes="16x16" href="./images/favicon/favicon-16.png">
+	<link rel="shortcut icon" sizes="32x32" href="./images/favicon/favicon-32.png">
+	<link rel="shortcut icon" sizes="152x152" href="./images/favicon/favicon-152.png">
+	<link rel="shortcut icon" sizes="196x196" href="./images/favicon/favicon-196.png">
+</head>
+<body>
+	<a-scene
+		antialias="true"
+		fog="color: #000000; near: 0.1; far: 5;"
+		loading
+		vr-mode-ui="enabled: false">
+
+		<a-assets>
+			<img id="play_button" src="./images/play.png">
+			<img id="pause_button" src="./images/pause.png">
+			<img id="info_button" src="./images/info.png">
+		</a-assets>
+
+
+		<a-entity
+			camera="userHeight: 1.6; near:0.01;"
+			listener
+			look-controls
+			wasd-controls="enabled:true;"
+			position="0 0 0">
+			</a-entity>
+
+		<a-entity menu position="0 2 -2" scale="0.75 0.75 1" id="menu">
+			<a-animation
+				begin="shrink" attribute="position" to="0 1.8 -2" dur="1000" easing="ease-out"></a-animation>
+			<a-animation
+				begin="shrink" attribute="scale" to="0.5 0.5 1" dur="1000" easing="ease-out"></a-animation>
+			<a-animation
+				begin="grow" attribute="position" to="0 2 -2" dur="2000" easing="ease-out" ></a-animation>
+			<a-animation
+				begin="grow" attribute="scale" to="0.75 0.75 1" dur="2000" easing="ease-out" ></a-animation>
+		</a-entity>
+
+		<!-- play button -->
+		<a-entity
+			playbutton="playing:false; visible: false"
+			position="0 1 -2"
+			id="playButton"
+			animate="attribute:scale; time:100;"
+			rotation="90 0 0">
+			<a-entity>
+				<a-plane src="#play_button"
+					material="transparent: true"
+					scale="0.9 0.9 0.9"
+					position="0 0.5 0" rotation="-90 0 0"></a-plane>
+				<a-circle
+					class="selectable"
+					material="color: white; shader: flat;" rotation="-90 0 0">
+						<a-animation
+							begin="mouseenter" attribute="material.color" to="rgb(100, 100, 100)" dur="0"></a-animation>
+						<a-animation
+							begin="mouseleave" attribute="material.color" to="white" dur="0"></a-animation>
+				</a-circle>
+				<a-cylinder
+					material="color: rgb(80, 80, 80); shader: flat;"
+					position="0 -0.52 0"
+					rotation="0 0 0">
+				</a-cylinder>
+				<a-animation
+					begin="mousedown" attribute="scale" to="1 0.5 1" dur="100"></a-animation>
+				<a-animation
+					begin="mousedown" attribute="position" to="0 -0.5 0" dur="100"></a-animation>
+				<a-animation
+					begin="mouseup" attribute="scale" to="1 1 1" dur="100"></a-animation>
+				<a-animation
+					begin="mouseup" attribute="position" to="0 0 0" dur="100"></a-animation>
+			</a-entity>
+		</a-entity>
+
+		<!-- LOADING -->
+		<a-image
+			id="loadingRing"
+			src="./images/spinner5.png"
+			material="transparent: true"
+			sprite-sheet="cols:12; rows: 12; progress: 0;"
+			position="0 1 -2" scale="0.4 0.4 0.4" visible="false" >
+			<a-animation
+				attribute="sprite-sheet.progress" from="0" to="1" dur="2800" repeat="indefinite" easing="linear"></a-animation>
+			<a-animation
+				attribute="rotation" from="0 0 0" to="0 0 160" dur="2800" repeat="indefinite" easing="linear"></a-animation>
+		</a-image>
+
+		<a-sky bg-color="#000" color="#000"></a-sky>
+		<a-entity shader-floor scale="1 1 1"></a-entity>
+		<a-entity atmosphere position="0 0 0" scale="7 7 7"></a-entity>
+		<!--a-plane id="ground" rotation="-90 0 0" material="color:#000" scale="1000 1000 1000"></a-plane>-->
+
+		<a-entity tracks rotation="0 -180 0"></a-entity>
+
+		<a-entity controls></a-entity>
+		<!--a-text id="console-3d" value="console-3d" position="0 0.3 -0.5"></qa-text-->
+
+	</a-scene>
+
+	<div id="splash" class="visible">
+		<canvas id="splash-canvas"></canvas>
+		<div id="splash-container">
+			<h1 id="title">INSIDE MUSIC</h1>
+			<p id="featuring">featuring</p>
+			<div id="bands"><span>Phoenix</span><span>Alarm Will Sound</span><span>Clipping</span><span>Natalia Lafourcade</span><span>Perfume Genius</span><span>Ibeyi</span></div>
+
+			<div id="enter-vr-container" style="color: #ffffff">
+				<br>
+				<a id="try-it-in-360" style="display: none;" href="javascript:void(0);">try it in 360</a>
+			</div>
+
+		</div>
+
+		<div id="badges">
+			<a href="https://webvrexperiments.com/" target="_blank">
+				<img src="./images/webVR_experiment@3x.png" class="badge">
+			</a>
+			<div class="keyline"></div>
+			<img src="./images/friends_with_g@3x.png" class="badge">
+			<div class="keyline"></div>
+			<a href="http://songexploder.net/" target="_blank">
+				<img src="./images/song_exploder_logotype.png" class="badge">
+			</a>
+		</div>
+
+		<div id="terms">
+			<a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a>
+			&amp;
+			<a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
+		</div>
+
+		<div id="openAbout" class="aboutButton"></div>
+
+		<div id="headphones">
+			<img src="./images/Headphones_black.png">
+			<div id="text">Headphones Recommended</div>
+		</div>
+		<div id="about">
+			<div id="closeAbout" class="aboutButton"></div>
+			<div id="content">
+				<h2 id="aboutTitle">SONG EXPLODER PRESENTS: INSIDE MUSIC</h2>
+
+				<p>
+				What if you could step inside a song? This is a simple experiment that explores that idea. See and hear the individual layers of music all around you to get a closer look at how music is made.
+				</p>
+
+				<p>
+					It's built with WebVR and spatial audio. We've open-sourced the code so that you can explore your own music in VR. <a href="https://github.com/googlecreativelab/inside-music" target="_blank">Learn more on our Github page</a>. And check out more WebVR Experiments <a href="https://experiments.withgoogle.com/webvr" target="_blank">here</a>.
+				</p>
+
+				<h2 id="aboutTitle">BIG THANKS TO OUR ARTISTS</h2>
+
+				<div id="artists"></div>
+
+				<p class="bandLink">
+					<a target="_blank" href="http://songexploder.net/">Song Exploder</a> is a podcast where musicians take apart their songs, and piece by piece, tell the story of how they were made. Each episode combines an interview with an artist with the isolated, individual tracks within one of their songs. Host Hrishikesh Hirway asks the artists to guide listeners through the different sounds and their creative decisions.
+				</p>
+
+
+				<p class="bandLink">
+					<a target="_blank" href="https://www.lafourcade.com.mx/en/">Natalia Lafourcade</a> is a Grammy and Latin Grammy Award winner from Mexico City. The song "T&uacute; S&iacute; Sabes Quererme" is from her 2017 album <i>Musas</i>.
+				</p>
+				<p class="bandLink">
+					<a target="_blank" href="http://wearephoenix.com/">Phoenix</a> is a Grammy Award winning band originally from Versailles, France. The song "Ti Amo" is from their critically acclaimed 2017 album <i>Ti Amo</i>.
+				</p>
+				<p class="bandLink">
+					<a target="_blank" href="http://perfumegenius.org/">Perfume Genius</a> is the project of Seattle-based artist Mike Hadreas. The song "Slip Away" is from his 2017 album <i>No Shape</i>, one of the year's most acclaimed.
+				</p>
+				<p class="bandLink">
+					<a target="_blank" href="http://www.alarmwillsound.com/">Alarm Will Sound</a> is a 20-member band that has been described by The New York Times as "one of the most vital and original ensembles on the American music scene." The piece "Roadrunner" by composer John Adams is from the 2017 album <i>Splitting Adams</i> recorded in partnership with the <a href="http://www.wqxr.org/story/splitting-adams-john-adams-chamber-symphonies/" target="_blank">Meet the Composer podcast</a>.
+
+				</p>
+				<p class="bandLink">
+					<a target="_blank" href="http://www.clppng.com/">Clipping</a> consists of William Hutson, a Ph.D. in Theater and Performance Studies, Jonathan Snipes, film-score composer, and rapper Daveed Diggs, who won 2016 Tony and Grammy awards for his role as Marquis de Lafayette and Thomas Jefferson in the acclaimed Broadway musical Hamilton.
+				</p>
+				<p class="bandLink">
+					<a target="_blank" href="http://www.ibeyi.fr/">Ibeyi</a>  is a French-Cuban musical duo of twin sisters Lisa-Kaind&eacute; Diaz and Naomi Diaz that sings in both English and the West African language Yoruba. The song "Deathless" is from their forthcoming album <i>Ash</i>.
+				</p>
+
+
+			</div>
+
+		</div>
+	</div>
+	<div id="fallback">
+		<div id="text"> Oops. Sorry for the tech trouble. Try <a href="https://www.google.com/chrome/browser/">Chrome Browser</a> instead. </div>
+	</div>
+	<div id="exitButton"></div>
+	<div id="insertHeadset">
+		<img src="./images/insert_headset.gif">
+	</div>
+</body>
+</html>

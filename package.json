@@ -1,0 +1,52 @@
+{
+  "name": "inside-music",
+  "version": "1.0.0",
+  "description": "Song Exploder VR is a WebVRExperiment that lets you step inside a song, giving you a closer look at how music is made.",
+  "main": "index.html",
+  "scripts": {
+    "watch": "webpack -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yotam Mann & Kyle Phillips",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babili-webpack-plugin": "0.0.11",
+    "css-loader": "^0.26.1",
+    "domready": "^1.0.8",
+    "file-loader": "^0.10.0",
+    "imports-loader": "^0.7.0",
+    "json-loader": "^0.5.4",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.0",
+    "simplex-noise": "^2.3.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^2.2.1",
+    "webvr-polyfill": "^0.9.25"
+  },
+  "dependencies": {
+    "@ekolabs/aframe-spritesheet-component": "^1.2.0",
+    "aframe": "git://github.com/aframevr/aframe.git#fbf2bfb6fab727fb0f9a480292ea8ea0d808d5c6",
+    "aframe-auto-detect-controllers-component": "^0.1.4",
+    "aframe-controller-cursor-component": "^0.2.7",
+    "aframe-gif-shader": "^0.2.0",
+    "aframe-look-at-component": "^0.5.1",
+    "animitter": "^3.0.0",
+    "dat-gui": "^0.5.0",
+    "eases": "^1.0.8",
+    "event-map": "^2.0.0",
+    "exports-loader": "^0.6.4",
+    "shader-loader": "^1.3.0",
+    "startaudiocontext": "^1.2.0",
+    "three": "^0.84.0",
+    "tinycolor2": "^1.4.1",
+    "tone": "git://github.com/Tonejs/Tone.js.git#bf52df2fdc2ea8c99b73985413b001308ef2835f",
+    "tween.js": "^16.6.0",
+    "visibilityjs": "^1.2.4",
+    "webvr-ui": "^0.10.0"
+  }
+}

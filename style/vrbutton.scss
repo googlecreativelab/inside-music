@@ -1,0 +1,25 @@
+
+#enterVR {
+	position: absolute;
+	bottom: 100px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 300px;
+
+	.webvr-ui-button {
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+
+	#enter360 {
+		text-align: center;
+		text-decoration: underline;
+		color: white;
+		margin-top: 20px;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
