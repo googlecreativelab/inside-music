@@ -12,7 +12,7 @@ def tmp_wav():
 # split the track up in 30 second segments
 def split_track(folder, track_name, out_path):
     segment = 0
-    print folder, track_name
+    print(folder, track_name)
     # normalize the wave file
     tmp_audio = tmp_wav()
     os.system("ffmpeg -i %s/%s.wav -sample_fmt s16 -ac 1 -sample_rate 44100 %s" % (folder, track_name, tmp_audio))
@@ -28,13 +28,13 @@ def split_track(folder, track_name, out_path):
         os.system("xld -o %s/%s-%d.ogg --samplerate=44100 -f vorbis --channels=1 --correct-30samples %s" % (out_path, track_name, segment, tmp))
         os.remove(tmp)
         segment+=1
-        print track_name, segment
+        print(track_name, segment)
     os.remove(tmp_audio)
 
 # go through and run the split track on each track
 def split_song(folder):
     out_path = "../%s" % (folder)
-    print folder
+    print(folder)
     if not os.path.exists(out_path):
         os.makedirs(out_path)
     # get all of the tracks in the folder

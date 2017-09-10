@@ -53,7 +53,7 @@ First, export the stems of your song as `wav` and so that they all line up at th
 
 Next, we need to use the `audio/stems/split.py` script to split each stem into 30 second chunks. This way it can stream more easily (getting around Web Audio's current streaming limitations). Once we run the script, it will split the audio files and move the generated files up one directory to the `audio` folder.
 
-Dependencies: to run `split.py` make sure you have python installed as well as [pydub](https://github.com/jiaaro/pydub).
+Dependencies: to run `split.py` make sure you have python installed as well as [pydub](https://github.com/jiaaro/pydub) and [xld](http://tmkk.undo.jp/xld/index_e.html).
 
 In the terminal, `cd` into the `audio/stems` folder. From there, run the `split.py` command with the name of your project's folder
 
