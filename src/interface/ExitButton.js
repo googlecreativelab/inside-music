@@ -24,7 +24,6 @@ export class ExitButton {
 
 		element.addEventListener('click', () => {
 			GA('ui', 'click', 'exit')
-			window.location.reload()
 		})
 
 		const scene = document.querySelector('a-scene')
@@ -41,7 +40,6 @@ export class ExitButton {
 		}, 10)
 	}
 	hide(){
-		window.location.reload()
 		this.element.classList.remove('visible')
 	}
 }
